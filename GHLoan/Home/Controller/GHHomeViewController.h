@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  GHHomeViewController.h
 //  GHLoan
 //
-//  Created by 国恒金服 on 2017/8/24.
+//  Created by Lin on 2017/8/24.
 //  Copyright © 2017年 国恒金服. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface GHHomeViewController : UIViewController
 
 @end
-

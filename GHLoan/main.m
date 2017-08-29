@@ -2,7 +2,7 @@
 //  main.m
 //  GHLoan
 //
-//  Created by 国恒金服 on 2017/8/24.
+//  Created by Lin on 2017/8/24.
 //  Copyright © 2017年 国恒金服. All rights reserved.
 //
 

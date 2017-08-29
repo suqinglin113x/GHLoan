@@ -2,11 +2,12 @@
 //  AppDelegate.m
 //  GHLoan
 //
-//  Created by 国恒金服 on 2017/8/24.
+//  Created by Lin on 2017/8/24.
 //  Copyright © 2017年 国恒金服. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "GHTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = [GHTabBarController new];
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
