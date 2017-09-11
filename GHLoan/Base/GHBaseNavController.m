@@ -16,7 +16,7 @@
 
 + (void)initialize
 {
-    // 修改导航样式
+    // 修改导航条样式
     UINavigationBar  *navBar = [UINavigationBar appearance];
     [navBar setTranslucent:NO];
     navBar.barTintColor = [UIColor colorWithRed:0.86f green:0.85f blue:0.80f alpha:1.00f];

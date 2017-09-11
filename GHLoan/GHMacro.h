@@ -15,6 +15,6 @@
  */
 #define GHScreenWidth [UIScreen mainScreen].bounds.size.width
 #define GHScreenHeight [UIScreen mainScreen].bounds.size.height
-
+#define GHSetImageWithName(name) [UIImage imageNamed:[NSString stringWithFormat:@"%@", name]]
 
 #endif /* GHMacro_h */
