@@ -7,11 +7,6 @@
 //
 
 #import "GHTabBarController.h"
-#import "GHHomeViewController.h"
-#import "GHFinanceViewController.h"
-#import "GHFindViewController.h"
-#import "GHMineViewController.h"
-#import "GHBaseNavController.h"
 
 
 #define kClassKey   @"rootVCClassString"

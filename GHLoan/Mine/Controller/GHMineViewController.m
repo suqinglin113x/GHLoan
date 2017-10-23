@@ -20,9 +20,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationController.topViewController.title = @"我的";
+    self.title = @"我的";
     
-  
     [self.view addSubview:self.tableView];
 }
 
@@ -33,14 +32,14 @@
         _tableView.frame = CGRectMake(0, 0, GHScreenWidth, GHScreenHeight - 64);
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.backgroundColor = [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1];
+        _tableView.backgroundColor = GHBackgroundColor;
     }
     return _tableView;
 }
 - (NSArray *)dataArr
 {
     if (_dataArr == nil) {
-        _dataArr = [NSArray arrayWithObjects:@[@"借款进度", @"我的还款", @"还款银行卡"], @[@"我的优惠券", @"邀请好友"], @[@"在线客服", @"消息中心", @"手势密码", @"更多"], nil];
+        _dataArr = [NSArray arrayWithObjects:@[@"借款进度", @"我的还款", @"还款银行卡"], @[@"手势密码", @"我的优惠券", @"邀请好友"], @[@"在线客服", @"消息中心", @"更多"], nil];
     }
     return _dataArr;
 }
@@ -91,8 +90,10 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 2 && indexPath.row == 2) {
+    if (indexPath.section == 1 && indexPath.row == 0) {
         GHLockViewController *lockVC = [GHLockViewController new];
+        GHBaseNavController *nav = (GHBaseNavController *)self.navigationController;
+        [nav setDisableDragBack:YES];
         [self.navigationController pushViewController:lockVC animated:YES];
     }
 }

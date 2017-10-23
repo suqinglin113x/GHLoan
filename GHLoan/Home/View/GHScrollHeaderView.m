@@ -79,25 +79,33 @@
  */
 - (void)addTimer
 {
-    self.timer = [NSTimer timerWithTimeInterval:2 repeats:YES block:^(NSTimer * _Nonnull timer) {
-        NSInteger index =self.pageControl.currentPage;
-        if (index < self.pageControl.numberOfPages) {
-            index ++;
-        }
-        if (index == self.pageControl.numberOfPages) {
-            index = 0;
-        }
-        self.pageControl.currentPage = index;
-        
-        // 便移量
-        CGFloat offsetx = GHScreenWidth *index;
-        [self.bannerScrollV setContentOffset:CGPointMake(offsetx, 0) animated:YES];
- 
-    }];
+    if (@available(iOS 10, *)) {
+        self.timer = [NSTimer timerWithTimeInterval:2 repeats:YES block:^(NSTimer * _Nonnull timer) {
+            NSInteger index =self.pageControl.currentPage;
+            if (index < self.pageControl.numberOfPages) {
+                index ++;
+            }
+            if (index == self.pageControl.numberOfPages) {
+                index = 0;
+            }
+            self.pageControl.currentPage = index;
+            
+            // 便移量
+            CGFloat offsetx = GHScreenWidth *index;
+            [self.bannerScrollV setContentOffset:CGPointMake(offsetx, 0) animated:YES];
+            
+        }];
+    } else {
+        self.timer = [NSTimer timerWithTimeInterval:2 target:self selector:@selector(scrollNext) userInfo:nil repeats:YES];
+    }
     
-    [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];;
+    
+    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];;
 }
-
+- (void)scrollNext
+{
+    
+}
 /**
  移除定时器
  */

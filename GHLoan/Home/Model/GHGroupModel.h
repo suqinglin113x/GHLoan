@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GHGroupModel : NSObject
+@interface GHGroupModel : GHBaseModel
 //@property (nonatomic, strong) NSArray *large_image_list; //
 @property (nonatomic, copy) NSString *text; //
 //@property (nonatomic, assign) NSInteger id; // 67739811802
 //@property (nonatomic, assign) NSInteger favorite_count; // 5
 //@property (nonatomic, assign) NSInteger go_detail_count; // 27240
 
+@property (nonatomic, copy) NSString *share_url;
 
-- (instancetype)initWithDict:(NSDictionary *)dict;
+@property (nonatomic, copy) NSString *content;
+//- (instancetype)initWithDict:(NSDictionary *)dict;
 @end

@@ -13,13 +13,13 @@
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "app-iPhone@2x-2.png",
+      "filename" : "appicon-1.jpg",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "app-iPhone@3x-2.png",
+      "filename" : "appicon.jpg",
       "scale" : "3x"
     },
     {
@@ -35,14 +35,19 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "app-iPhone@2x-3.png",
+      "filename" : "appicon-2.jpg",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "app-iPhone@3x-3.png",
+      "filename" : "appicon-3.jpg",
       "scale" : "3x"
+    },
+    {
+      "idiom" : "ios-marketing",
+      "size" : "1024x1024",
+      "scale" : "1x"
     }
   ],
   "info" : {

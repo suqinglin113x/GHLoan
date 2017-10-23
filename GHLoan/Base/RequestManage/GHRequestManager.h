@@ -37,7 +37,7 @@ typedef NS_ENUM(NSUInteger, GHResponseSerializerType){
  @param success 请求成功的回调
  @param failure 请求失败的回调
  */
-+ (void)GH_GET:(NSString *)URLString parameters:(id)parameters responseSerializerType:()type success:(void(^)(id responseObject))success failure:(void(^)(NSError *error))failure;
++ (void)GH_GET:(NSString *)URLString parameters:(id)parameters responseSerializerType:(GHResponseSerializerType)type success:(void(^)(id responseObject))success failure:(void(^)(NSError *error))failure;
 
 
 /**

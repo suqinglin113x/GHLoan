@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "GHTabBarController.h"
+#import "GHGestureModifyController.h"
 
 @interface AppDelegate ()
 
@@ -24,10 +25,46 @@
     self.window.rootViewController = [GHTabBarController new];
     [self.window makeKeyAndVisible];
     
+    // 手势密码
+    [self showGestureLockView];
+    
+    
+    UIApplication *app = [UIApplication sharedApplication];
+    id value;
+    
+    // iphone x
+    if (iPhone_X) {
+         value = [[app valueForKey:@"statusBar"] valueForKeyPath:@"statusBar"];
+        id value2 = [value valueForKey:@"currentData"];
+        id value3 = [[value2 valueForKey:@"wifiEntry"] valueForKey:@"status"];
+    } else {
+        value = [app valueForKeyPath:@"statusBar"];
+        UIView * value2 = [value valueForKey:@"foregroundView"];
+        NSArray *children = value2.subviews;
+        int netType = 0;
+        //获取到网络返回码
+        for (id child in children) {
+            if ([child isKindOfClass:NSClassFromString(@"UIStatusBarDataNetworkItemView")]) {
+                //获取到状态栏
+                netType = [[child valueForKeyPath:@"dataNetworkType"]intValue];
+                
+            }
+        }
+    }
+   
+    
     return YES;
 }
 
-
+- (void)showGestureLockView
+{
+    NSString * gesture = [QLCircleViewConst getGestureWithKey:gestureFinalSaveKey];
+    if (gesture) {
+        GHGestureModifyController *gestureVC = [GHGestureModifyController new];
+        gestureVC.isfromMainView = YES;
+        self.window.rootViewController = gestureVC;
+    }
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -42,6 +79,9 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    
+    // 手势密码
+    [self showGestureLockView];
 }
 
 

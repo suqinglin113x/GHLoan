@@ -10,4 +10,11 @@
 
 @interface GHBaseNavController : UINavigationController
 
+/**
+ 是否禁用返回拖拽手势 YES:启用 NO：禁用
+ */
+@property (nonatomic, assign) BOOL disableDragBack;
+
+@property (nonatomic, strong) UIPanGestureRecognizer *panGesture;
+- (void)back;
 @end

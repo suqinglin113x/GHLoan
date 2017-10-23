@@ -10,11 +10,10 @@
 
 @implementation GHRequestManager
 
-+ (void)GH_GET:(NSString *)URLString parameters:(id)parameters responseSerializerType:()type success:(void(^)(id responseObject))success failure:(void(^)(NSError *error))failure
++ (void)GH_GET:(NSString *)URLString parameters:(id)parameters responseSerializerType:(GHResponseSerializerType)type success:(void(^)(id responseObject))success failure:(void(^)(NSError *error))failure
 {
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/xml", nil];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     

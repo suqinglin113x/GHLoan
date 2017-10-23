@@ -13,8 +13,13 @@
 - (instancetype)initWithDict:(NSDictionary *)dict
 {
     GHGroupModel *model = [GHGroupModel new];
-    model.text = dict[@"text"];
-    
+//    model.text = dict[@"text"];
+    [model setValuesForKeysWithDictionary:dict];
     return model;
+}
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key
+{
+    
 }
 @end
